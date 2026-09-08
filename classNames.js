@@ -1,3 +1,10 @@
+// classNames("foo", "bar"); // 'foo bar'
+// classNames("foo", { bar: true }); // 'foo bar'
+// classNames({ "foo-bar": true }); // 'foo-bar'
+// classNames({ "foo-bar": false }); // ''
+// classNames({ foo: true }, { bar: true }); // 'foo bar'
+// classNames({ foo: true, bar: true }); // 'foo bar'
+// classNames({ foo: true, bar: false, qux: true }); // 'foo qux'
 
 function classNames(...args) {
   let classStringFinalArr = [];
@@ -22,3 +29,8 @@ function classNames(...args) {
   stringifyArray(args);
   return classStringFinalArr.join(" ");
 }
+
+console.log(
+  classNames(null, false, "bar", undefined, 0, 1, { baz: null }, ""),
+  "classNames",
+);
